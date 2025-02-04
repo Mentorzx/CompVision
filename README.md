@@ -11,8 +11,6 @@ This project implements a mobile robot estimation system using computer vision t
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
