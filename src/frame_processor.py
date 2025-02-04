@@ -85,6 +85,14 @@ class FrameProcessorFacade:
         angle_deg: float = np.rad2deg(angle_rad)
         self.angles.append(angle_deg)
 
+        threshold = 120
+        if len(self.angles) > 1:
+            if abs(self.angles[-1] - self.angles[-2]) > threshold:
+                self.angles[-1] = (
+                    self.angles[-2]
+                    + (self.angles[-3] if len(self.angles) > 2 else self.angles[-2])
+                ) / 2
+
         decorator = InertiaPlotDecorator(lambda *args, **kwargs: fig)
         fig = decorator.render((uc, vc), eigenvalues, angle_deg, fig)
 
