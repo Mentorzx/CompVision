@@ -65,13 +65,12 @@ class MobileRobotEstimatorFacade:
         average_speed: float = (
             self._total_distance / total_time if total_time > 0 else 0
         )
-        print("\n-------------------- Robot Parameters -----------------------")
+        print("\nRobot Parameters:")
         print(f"Video FPS: {self._fps} frames per second")
         print(f"Sampling Interval: every {self._sample_interval} frames")
         print(f"Average Speed: {average_speed:.2f} pixels per second")
         print(f"Total Distance: {self._total_distance:.2f} pixels")
         print(f"Total Time: {total_time:.2f} seconds")
-        print("--------------------------------------------------------------")
 
     def _plot_trajectory(self) -> None:
         """

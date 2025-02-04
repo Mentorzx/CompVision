@@ -1,8 +1,0 @@
-
--------------------- Robot Parameters -----------------------
-Video FPS: 20 frames per second
-Sampling Interval: every 50 frames
-Average Speed: 26.97 pixels per second
-Total Distance: 1665.25 pixels
-Total Time: 61.75 seconds
---------------------------------------------------------------
