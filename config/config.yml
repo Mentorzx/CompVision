@@ -1,4 +1,4 @@
-video_file: "data/video2_husky.mp4"
+video_file: "data/video1_husky.mp4"
 output_video: "outputs/husky_output.mp4"
 info_file: "logs/husky_information.txt"
 fps: 20
