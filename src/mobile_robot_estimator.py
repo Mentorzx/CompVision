@@ -114,6 +114,30 @@ class MobileRobotEstimatorFacade:
         plt.show()
         plt.close(fig)
 
+    def _plot_positions(self) -> None:
+        """
+        Plot and save the x and y positions of the robot across frames.
+
+        This method retrieves the centroid history from the tracker and plots:
+        - The x-coordinate (horizontal position) versus the frame number.
+        - The y-coordinate (vertical position) versus the frame number.
+        """
+        history: np.ndarray = np.array(self._tracker.get_history())
+        if history.size == 0:
+            return
+        fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(8, 6))
+        ax1.plot(history[:, 0], "b-o", label="X Position")
+        ax1.set_ylabel("X Position (pixels)")
+        ax1.legend()
+        ax2.plot(history[:, 1], "r-o", label="Y Position")
+        ax2.set_xlabel("Frame Number")
+        ax2.set_ylabel("Y Position (pixels)")
+        ax2.legend()
+        plt.title("Robot X and Y Positions over Frames")
+        plt.savefig("outputs/Robot_positions.png")
+        plt.show()
+        plt.close(fig)
+
     def run(self) -> None:
         """
         Execute the full estimation process over the video.
@@ -146,3 +170,4 @@ class MobileRobotEstimatorFacade:
         self._restore_stdout()
         self._plot_trajectory()
         self._plot_angles()
+        self._plot_positions()
